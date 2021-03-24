@@ -1,15 +1,18 @@
 Intructor: batelt@jfrog.com 
 
-
-vaheed@vaheed-x1carbon:~/personal/git$ git clone https://github.com/naveedmv/devops-101-workshop.git
+vaheed@vaheed-x1carbon:~/personal/git$ git clone git@github.com:naveedmv/devops-101-workshop.git
 Cloning into 'devops-101-workshop'...
-remote: Enumerating objects: 97, done.
-remote: Counting objects: 100% (97/97), done.
-remote: Compressing objects: 100% (71/71), done.
-remote: Total 97 (delta 22), reused 20 (delta 0), pack-reused 0
-Unpacking objects: 100% (97/97), 29.69 KiB | 1.24 MiB/s, done.
-vaheed@vaheed-x1carbon:~/personal/git$ 
-vaheed@vaheed-x1carbon:~/personal/git$ 
+The authenticity of host 'github.com (140.82.114.4)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.114.4' (RSA) to the list of known hosts.
+remote: Enumerating objects: 103, done.
+remote: Counting objects: 100% (103/103), done.
+remote: Compressing objects: 100% (76/76), done.
+remote: Total 103 (delta 23), reused 26 (delta 0), pack-reused 0
+Receiving objects: 100% (103/103), 31.54 KiB | 313.00 KiB/s, done.
+Resolving deltas: 100% (23/23), done.
+vaheed@vaheed-x1carbon:~/personal/git$
 vaheed@vaheed-x1carbon:~/personal/git$ ls
 devops-101-workshop
 vaheed@vaheed-x1carbon:~/personal/git$ cd devops-101-workshop/
