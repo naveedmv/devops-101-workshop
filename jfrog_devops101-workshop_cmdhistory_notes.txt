@@ -1,0 +1,87 @@
+Intructor: batelt@jfrog.com 
+
+
+vaheed@vaheed-x1carbon:~/personal/git$ git clone https://github.com/naveedmv/devops-101-workshop.git
+Cloning into 'devops-101-workshop'...
+remote: Enumerating objects: 97, done.
+remote: Counting objects: 100% (97/97), done.
+remote: Compressing objects: 100% (71/71), done.
+remote: Total 97 (delta 22), reused 20 (delta 0), pack-reused 0
+Unpacking objects: 100% (97/97), 29.69 KiB | 1.24 MiB/s, done.
+vaheed@vaheed-x1carbon:~/personal/git$ 
+vaheed@vaheed-x1carbon:~/personal/git$ 
+vaheed@vaheed-x1carbon:~/personal/git$ ls
+devops-101-workshop
+vaheed@vaheed-x1carbon:~/personal/git$ cd devops-101-workshop/
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ ll
+total 32
+drwxrwxr-x 6 vaheed vaheed 4096 Mar 24 12:29 ./
+drwxrwxr-x 3 vaheed vaheed 4096 Mar 24 12:29 ../
+-rw-rw-r-- 1 vaheed vaheed   44 Mar 24 12:29 Dockerfile
+drwxrwxr-x 2 vaheed vaheed 4096 Mar 24 12:29 docs/
+drwxrwxr-x 8 vaheed vaheed 4096 Mar 24 12:29 .git/
+drwxrwxr-x 3 vaheed vaheed 4096 Mar 24 12:29 .github/
+-rw-rw-r-- 1 vaheed vaheed 2407 Mar 24 12:29 README.md
+drwxrwxr-x 4 vaheed vaheed 4096 Mar 24 12:29 sample-projects/
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ vim Dockerfile 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ ls
+Dockerfile  docs  README.md  sample-projects
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ cd sample-projects/
+docker-example/ python-example/ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop$ cd sample-projects/docker-example/
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ ls
+Dockerfile
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ cat Dockerfile 
+FROM ${SERVER_NAME}.jfrog.io/${VIRTUAL_REPO_NAME}/ubuntu:16.04
+
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ vim Dockerfile 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ cat Dockerfile 
+#FROM ${SERVER_NAME}.jfrog.io/${VIRTUAL_REPO_NAME}/ubuntu:16.04
+FROM nmv1306.jfrog.io/devops101workshop-docker/ubuntu:16.04
+
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ docker login nmv1306.jfrog.io
+Username: naveed.vaheed@gmail.com
+Password: 
+WARNING! Your password will be stored unencrypted in /home/vaheed/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ docker build --tag nmv1306.jfrog.io/devops101workshop-docker/my-docker-image:latest .
+Sending build context to Docker daemon  2.048kB
+Step 1/1 : FROM nmv1306.jfrog.io/devops101workshop-docker/ubuntu:16.04
+16.04: Pulling from devops101workshop-docker/ubuntu
+4007a89234b4: Pull complete 
+5dfa26c6b9c9: Pull complete 
+0ba7bf18aa40: Pull complete 
+4c6ec688ebe3: Pull complete 
+Digest: sha256:e74994b7a9ec8e2129cfc6a871f3236940006ed31091de355578492ed140a39c
+Status: Downloaded newer image for nmv1306.jfrog.io/devops101workshop-docker/ubuntu:16.04
+ ---> 8185511cd5ad
+Successfully built 8185511cd5ad
+Successfully tagged nmv1306.jfrog.io/devops101workshop-docker/my-docker-image:latest
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ docker images
+REPOSITORY                                                  TAG                 IMAGE ID            CREATED             SIZE
+nmv1306.jfrog.io/devops101workshop-docker/my-docker-image   latest              8185511cd5ad        2 months ago        132MB
+nmv1306.jfrog.io/devops101workshop-docker/ubuntu            16.04               8185511cd5ad        2 months ago        132MB
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ docker push nmv1306.jfrog.io/devops101workshop-docker/my-docker-image:latest 
+The push refers to repository [nmv1306.jfrog.io/devops101workshop-docker/my-docker-image]
+5276d2b930fc: Layer already exists 
+e6feec0db89a: Layer already exists 
+697949baa658: Layer already exists 
+935c56d8b3f9: Layer already exists 
+latest: digest: sha256:edf232ee7dc18c57c063bc83533ef2c03c6dfae55a0124f7d372aed51cd1d9c8 size: 1150
+vaheed@vaheed-x1carbon:~/personal/git/devops-101-workshop/sample-projects/docker-example$ 
